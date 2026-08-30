@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #0b0b0f;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 233, 74, 0.08) 0 12%, transparent 12% 100%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 42px),
+    #0b0b0f;
+  color: #fff7e8;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pop-in {
+    animation: pop-in 180ms ease-out both;
+  }
+
+  .slide-up {
+    animation: slide-up 260ms ease-out both;
+  }
+
+  .floaty {
+    animation: floaty 4.8s ease-in-out infinite;
+  }
+
+  .ticker-track {
+    animation: ticker 22s linear infinite;
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 1.8s ease-out infinite;
+  }
+
+  .glitch-pop {
+    animation: glitch-pop 2.6s steps(2, end) infinite;
+  }
+
+  .tap-shine::after {
+    animation: tap-shine 3.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(4deg);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.72);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.85);
+  }
+}
+
+@keyframes glitch-pop {
+  0%,
+  92%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  94% {
+    transform: translate(2px, -2px) rotate(3deg);
+  }
+  96% {
+    transform: translate(-2px, 1px) rotate(-2deg);
+  }
+}
+
+@keyframes tap-shine {
+  0%,
+  55% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(160%) skewX(-18deg);
+  }
+}
+
+.scene-3d {
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.tilt-card {
+  transform: rotateX(5deg) rotateY(-7deg) translateZ(0);
+  transform-style: preserve-3d;
+}
+
+.tilt-card-right {
+  transform: rotateX(7deg) rotateY(8deg) translateZ(0);
+  transform-style: preserve-3d;
+}
+
+.holo-card {
+  background:
+    linear-gradient(120deg, rgba(255, 233, 74, 0.12), transparent 28%),
+    linear-gradient(240deg, rgba(255, 63, 164, 0.18), transparent 32%),
+    #15151d;
+}
+
+.stage-floor {
+  background:
+    linear-gradient(rgba(255, 233, 74, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 255, 74, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+  transform: rotateX(64deg);
+  transform-origin: top;
+}
+
+.text-edge {
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 rgba(255, 233, 74, 0.28);
+}
+
+.sticker {
+  box-shadow: 4px 4px 0 #000;
+}
+
+.tap-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.tap-shine::after {
+  content: "";
+  position: absolute;
+  inset: -40% auto -40% 0;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  pointer-events: none;
+}
