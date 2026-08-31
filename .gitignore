@@ -2,6 +2,7 @@
 node_modules/
 tsconfig.tsbuildinfo
 *.log
+tmp-*.png
 .env*
 !.env.example
 
