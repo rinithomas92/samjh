@@ -30,6 +30,7 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<ResponseOption[]>([]);
   const [selected, setSelected] = useState<ResponseOption | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const scenario = scenarios[index];
   const progress = useMemo(() => Math.round(((index + 1) / scenarios.length) * 100), [index, scenarios.length]);
 
@@ -40,7 +41,8 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
   }
 
   function next() {
-    if (!selected) return;
+    if (!selected || submitting) return;
+    setSubmitting(true);
     const updated = [...answers, selected];
     if (index === scenarios.length - 1) {
       const result = saveResult(character.id, updated);
@@ -51,11 +53,12 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
     }
     setAnswers(updated);
     setSelected(null);
-    setIndex(index + 1);
+    setIndex((current) => current + 1);
+    setSubmitting(false);
   }
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col px-4 py-5">
+    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col px-4 py-5 sm:max-w-2xl md:max-w-3xl">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.18em] text-lime">{scenario.category}</p>
@@ -70,9 +73,9 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
         <span>Reputation Shield</span>
         <span>{100 - progress + 7}% unstable</span>
       </div>
-      <section className="scene-3d slide-up rounded-[28px] border-2 border-cream bg-coal p-5 shadow-pop">
+      <section className="scene-3d slide-up overflow-hidden rounded-[28px] border-2 border-cream bg-coal p-5 shadow-pop">
         {scenario.context && <p className="mb-4 text-sm font-bold text-cream/65">{scenario.context}</p>}
-        <div className="tilt-card-right rounded-2xl rounded-tl-sm border-2 border-yellow bg-ink p-4 shadow-pop">
+        <div className="-rotate-1 max-w-full rounded-2xl rounded-tl-sm border-2 border-yellow bg-ink p-4 shadow-pop">
           {scenario.speaker && <p className="text-sm font-black text-pink">{scenario.speaker}:</p>}
           <p className="mt-1 text-2xl font-black leading-tight">"{scenario.situation}"</p>
           <p className="mt-3 inline-block rounded-md bg-lime px-2 py-1 text-xs font-black text-ink">NPC confidence: dangerously high</p>
@@ -83,7 +86,9 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
             <button
               key={option.id}
               onClick={() => choose(option)}
-              className={`min-h-16 rounded-xl border-2 p-4 text-left text-base font-black transition ${selected?.id === option.id ? "tilt-card border-yellow bg-yellow text-ink shadow-pop" : "border-cream/25 bg-ink text-cream active:scale-[0.99]"}`}
+              disabled={!!selected}
+              aria-disabled={!!selected}
+              className={`min-h-16 rounded-xl border-2 p-4 text-left text-base font-black transition disabled:cursor-not-allowed ${selected?.id === option.id ? "border-yellow bg-yellow text-ink shadow-pop" : selected ? "border-cream/10 bg-ink text-cream/40" : "border-cream/25 bg-ink text-cream active:scale-[0.99]"}`}
             >
               <span className="mr-2 text-pink">{labels[optionIndex]}.</span>
               {option.text} <span aria-hidden>{option.emoji}</span>
@@ -106,7 +111,7 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
           </div>
           <h4 className="mt-4 text-sm font-black text-pink">WHY THIS WORKS 🧠</h4>
           <p className="mt-1 text-sm leading-relaxed text-cream/75">{selected.psychology}</p>
-          <button onClick={next} className="mt-5 min-h-12 w-full rounded-xl bg-pink px-5 font-black text-cream">
+          <button onClick={next} disabled={submitting} className="mt-5 min-h-12 w-full rounded-xl bg-pink px-5 font-black text-cream disabled:opacity-60">
             {index === scenarios.length - 1 ? "SEE MY PERSONA" : "NEXT SOCIAL DISASTER"}
           </button>
         </section>

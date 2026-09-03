@@ -38,10 +38,10 @@ const baseResponses = {
 
 function responses(a: string, b: string, c: string, d: string) {
   return [
-    { ...baseResponses.please, id: "a", text: a, emoji: "😭" },
-    { ...baseResponses.savage, id: "b", text: b, emoji: "💀" },
-    { ...baseResponses.gentle, id: "c", text: c, emoji: "🧠" },
-    { ...baseResponses.escape, id: "d", text: d, emoji: "🏃" }
+    { ...baseResponses.please, scores: { ...baseResponses.please.scores }, id: "a", text: a, emoji: "😭" },
+    { ...baseResponses.savage, scores: { ...baseResponses.savage.scores }, id: "b", text: b, emoji: "💀" },
+    { ...baseResponses.gentle, scores: { ...baseResponses.gentle.scores }, id: "c", text: c, emoji: "🧠" },
+    { ...baseResponses.escape, scores: { ...baseResponses.escape.scores }, id: "d", text: d, emoji: "🏃" }
   ];
 }
 
@@ -198,7 +198,7 @@ export const scenarios: Scenario[] = [
     speaker: "Uncle",
     situation: "Girls should dress modestly. Men will be men.",
     question: "Pick a response.",
-    responses: responses("Hmm, maybe.", "Wow, accountability took early retirement.", "Respect should apply to everyone. Behavior is a choice.", "Change topic to cricket instantly.")
+    responses: responses("Hmm, maybe.", "Wow, accountability took early retirement.", "Respect should apply to everyone. Behavior is a choice.", "Change the topic to cricket instantly.")
   },
   {
     id: "cu-whatsapp",
@@ -342,7 +342,7 @@ export const scenarios: Scenario[] = [
     speaker: "Aunty",
     situation: "Another course? Are you still not settled?",
     question: "Your move?",
-    responses: responses("Maybe I am behind.", "Learning after 25, very illegal apparently.", "I like learning because my goals keep evolving.", "Say it was free and change topic.")
+    responses: responses("Maybe I am behind.", "Learning after 25, very illegal apparently.", "I like learning because my goals keep evolving.", "Say it was free and change the topic.")
   },
   {
     id: "ca-social",

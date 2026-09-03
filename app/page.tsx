@@ -12,7 +12,7 @@ const features = ["Daily Roast", "Social IQ", "3D Score Meter", "Roast Generator
 export default function Home() {
   return (
     <>
-      <main className="mx-auto min-h-screen w-full max-w-md px-4 py-5">
+      <main className="mx-auto min-h-screen w-full max-w-md px-4 py-5 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl">
         <nav className="flex items-center justify-between">
           <div className="text-2xl font-black">SAMJH <span aria-hidden>🇮🇳</span></div>
           <div className="flex gap-2">
@@ -29,7 +29,7 @@ export default function Home() {
         </section>
         <ViralPulse />
         <RoastGenerator />
-        <section className="my-8 grid grid-cols-2 gap-3">
+        <section className="my-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {features.map((feature, index) => (
             <div key={feature} className={`rounded-xl border-2 border-cream bg-coal p-4 text-lg font-black shadow-pop ${index % 3 === 0 ? "tilt-card" : ""}`}>
               {feature}

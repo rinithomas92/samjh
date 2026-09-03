@@ -27,7 +27,7 @@ export function CharacterCard({ character }: { character: Character }) {
         ))}
       </div>
       <div className="mt-4 flex items-center justify-between border-t border-cream/15 pt-3 text-xs font-black text-yellow">
-        <span>Tap to enter roast arena</span>
+        <span>Tap to enter the roast arena</span>
         <span>→</span>
       </div>
     </Link>

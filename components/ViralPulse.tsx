@@ -42,8 +42,8 @@ export function ViralPulse() {
           </div>
         </div>
         <div className="mt-5 grid gap-3">
-          {signals.map((signal, index) => (
-            <div key={signal.label} className={`tap-shine rounded-2xl border-2 bg-coal p-4 shadow-pop ${signal.color} ${index % 2 ? "tilt-card-right" : "tilt-card"}`}>
+          {signals.map((signal) => (
+            <div key={signal.label} className={`tap-shine rounded-2xl border-2 bg-coal p-4 shadow-pop ${signal.color}`}>
               <div className="flex items-center justify-between gap-3">
                 <p className="text-sm font-black uppercase tracking-[0.08em] text-cream">{signal.label}</p>
                 <p className="rounded-lg bg-cream px-2 py-1 text-sm font-black text-ink">{signal.value}</p>
