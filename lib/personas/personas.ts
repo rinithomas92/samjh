@@ -12,7 +12,7 @@ export const personas: Persona[] = [
     id: "boundary-boss",
     name: "THE BOUNDARY BOSS",
     emoji: "🛡️",
-    description: "No is a complete sentence. You apparently received the memo.",
+    description: "‘No’ is a complete sentence. You apparently received the memo.",
     quote: "Your calendar has walls and people are learning to respect architecture."
   },
   {
@@ -41,7 +41,7 @@ export const personas: Persona[] = [
     name: "THE HUMAN HR DEPARTMENT",
     emoji: "🧠",
     description: "You somehow turn arguments into action items.",
-    quote: "You entered the fight and left with minutes of meeting."
+    quote: "You entered the fight and left with the meeting minutes."
   },
   {
     id: "silent-escapist",
