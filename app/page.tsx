@@ -4,10 +4,8 @@ import { RoastGenerator } from "@/components/RoastGenerator";
 import { SatireTicker } from "@/components/SatireTicker";
 import { ThreeDHero } from "@/components/ThreeDHero";
 import { TodayQuestion } from "@/components/TodayQuestion";
-import { ViralChallengeStrip } from "@/components/ViralChallengeStrip";
-import { ViralPulse } from "@/components/ViralPulse";
 
-const features = ["Daily Roast", "Social IQ", "3D Score Meter", "Roast Generator", "Persona Drop", "Story Pack"];
+const features = ["Daily Roast", "Social IQ", "3D Score Meter", "Roast Generator", "Persona Drop", "Challenge Link"];
 
 export default function Home() {
   return (
@@ -16,7 +14,6 @@ export default function Home() {
         <nav className="flex items-center justify-between">
           <div className="text-2xl font-black">SAMJH <span aria-hidden>🇮🇳</span></div>
           <div className="flex gap-2">
-            <Link href="/viral" className="rounded-full border border-lime/60 px-4 py-2 text-sm font-black text-lime">Viral</Link>
             <Link href="/play" className="rounded-full bg-cream px-4 py-2 text-sm font-black text-ink">Play</Link>
           </div>
         </nav>
@@ -27,7 +24,6 @@ export default function Home() {
         <section className="mt-9">
           <TodayQuestion />
         </section>
-        <ViralPulse />
         <RoastGenerator />
         <section className="my-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {features.map((feature, index) => (
@@ -37,10 +33,9 @@ export default function Home() {
           ))}
         </section>
         <section className="mb-8 rounded-2xl border-2 border-pink bg-ink p-5 shadow-pop">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-pink">Viral Loop</p>
-          <p className="mt-3 text-2xl font-black leading-tight">Play. Get roasted. Screenshot persona. Challenge friend. Watch group chat choose violence.</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-pink">Game Loop</p>
+          <p className="mt-3 text-2xl font-black leading-tight">Play. Get roasted. Screenshot persona. Challenge a friend.</p>
         </section>
-        <ViralChallengeStrip />
         <Disclaimer />
       </main>
       <SatireTicker />

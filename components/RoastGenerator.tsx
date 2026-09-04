@@ -57,7 +57,7 @@ export function RoastGenerator() {
       </div>
       <div className="mt-4 grid grid-cols-2 gap-3">
         <Link href="/play" className="grid min-h-12 place-items-center rounded-xl bg-lime px-4 text-center font-black text-ink">PLAY QUIZ</Link>
-        <Link href="/viral" className="grid min-h-12 place-items-center rounded-xl border-2 border-yellow px-4 text-center font-black text-yellow">MAKE REEL</Link>
+        <Link href="/play/corporate-majdoor" className="grid min-h-12 place-items-center rounded-xl border-2 border-yellow px-4 text-center font-black text-yellow">TRY BOSS PING</Link>
       </div>
     </section>
   );

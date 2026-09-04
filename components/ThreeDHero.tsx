@@ -25,8 +25,8 @@ export function ThreeDHero() {
           <Link href="/play" className="grid min-h-14 place-items-center rounded-2xl bg-yellow px-6 text-lg font-black text-ink shadow-pop min-[390px]:text-xl">
             PLAY NOW
           </Link>
-          <Link href="/viral" className="grid min-h-12 place-items-center rounded-2xl border-2 border-lime px-6 text-sm font-black text-lime">
-            MAKE IT VIRAL
+          <Link href="/play" className="grid min-h-12 place-items-center rounded-2xl border-2 border-lime px-6 text-sm font-black text-lime">
+            CHOOSE CHARACTER
           </Link>
         </div>
         <div className="mt-7 grid gap-3 min-[390px]:grid-cols-3">

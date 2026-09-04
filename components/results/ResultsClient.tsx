@@ -129,7 +129,6 @@ export function ResultsClient() {
           <button onClick={copyInstagramCaption} className="min-h-12 rounded-xl bg-violet px-5 font-black text-cream">COPY INSTA CAPTION</button>
           <button onClick={saveImage} className="min-h-12 rounded-xl bg-lime px-5 font-black text-ink">SAVE SHARE CARD</button>
           <button onClick={createChallenge} className="min-h-12 rounded-xl bg-pink px-5 font-black text-cream">CHALLENGE A FRIEND</button>
-          <Link href="/viral" className="grid min-h-12 place-items-center rounded-xl border-2 border-yellow px-5 text-center font-black text-yellow">OPEN VIRAL MODE</Link>
           <Link href="/play" className="grid min-h-12 place-items-center rounded-xl border-2 border-cream px-5 text-center font-black">PLAY ANOTHER CHARACTER</Link>
           {message && <p className="text-center text-sm font-bold text-lime">{message}</p>}
           <Link href={challengePath(result)} className="text-center text-sm font-bold text-cream/60">Open challenge page</Link>

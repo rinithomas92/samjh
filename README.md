@@ -1,6 +1,6 @@
 # SAMJH - The Indian Social Intelligence Game
 
-SAMJH is a mobile-first viral quiz game about awkward, funny, recognizable Indian social situations. It is built for the loop: play, laugh, get scored, discover a persona, share, challenge a friend, replay.
+SAMJH is a mobile-first quiz game about awkward, funny, recognizable Indian social situations. It is built for the loop: play, laugh, get scored, discover a persona, share, challenge a friend, replay.
 
 SAMJH is entertainment and education. It is not a psychological, clinical, medical, or diagnostic assessment.
 
