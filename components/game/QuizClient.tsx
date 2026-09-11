@@ -40,7 +40,34 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
     track("question_answered", { characterId: character.id, scenarioId: scenario.id, optionId: option.id });
   }
 
-  function next() {
+  async function saveAssessmentToDatabase(result: ReturnType<typeof saveResult>, completedAnswers: ResponseOption[]) {
+    const payload = {
+      characterId: character.id,
+      socialIq: result.socialIq,
+      personaId: result.personaId,
+      scores: result.scores,
+      answeredAt: result.answeredAt,
+      responses: completedAnswers.map((answer, answerIndex) => ({
+        scenarioId: scenarios[answerIndex]?.id ?? `question-${answerIndex + 1}`,
+        category: scenarios[answerIndex]?.category ?? "Unknown",
+        responseId: answer.id,
+        responseText: answer.text,
+        scores: answer.scores
+      }))
+    };
+
+    const response = await fetch("/api/assessments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Assessment save failed with ${response.status}`);
+    }
+  }
+
+  async function next() {
     if (!selected || submitting) return;
     setSubmitting(true);
     const updated = [...answers, selected];
@@ -48,6 +75,11 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
       const result = saveResult(character.id, updated);
       track("quiz_completed", { characterId: character.id, socialIq: result.socialIq });
       track("persona_generated", { personaId: result.personaId });
+      try {
+        await saveAssessmentToDatabase(result, updated);
+      } catch (error) {
+        console.warn("[samjh] Assessment was saved locally but not in the database.", error);
+      }
       router.push("/results");
       return;
     }

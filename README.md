@@ -23,6 +23,7 @@ Then open the local URL printed by Next.js.
 - `lib/personas/` contains deterministic persona rules.
 - `lib/share.ts` contains share and challenge-link helpers.
 - `lib/analytics.ts` is a provider-free analytics abstraction ready for PostHog, Plausible, or another provider later.
+- `app/api/assessments/route.ts` stores completed assessments in Postgres when `DATABASE_URL` is configured.
 
 ## Add a character
 
@@ -57,11 +58,27 @@ Challenge URLs encode score and persona in the path, for example:
 /challenge/87-diplomatic-menace
 ```
 
-No database is required for the MVP. Challenge state is stored in session storage while the player takes their quiz.
+Challenge links do not require database lookups. Challenge state is stored in session storage while the player takes their quiz.
+
+## Assessment storage
+
+Completed assessments are posted to `/api/assessments` and stored in a Postgres table named `samjh_assessments`.
+
+For Vercel, install Neon Postgres from the Vercel Marketplace and connect it to this project. The integration should provide `DATABASE_URL`; then redeploy. The API creates the table automatically on first successful write.
+
+Stored fields include:
+
+- character ID
+- selected response IDs and text
+- response score weights
+- final normalized scores
+- Social IQ
+- persona ID
+- user agent and referrer metadata
 
 ## Deploy to Vercel
 
-Push the repository to GitHub and import it in Vercel. Use the default Next.js settings. No environment variables, database, authentication, or server setup is required.
+Push the repository to GitHub and import it in Vercel. Use the default Next.js settings. To persist assessments, add Neon Postgres through Vercel Marketplace so `DATABASE_URL` is available in Production, Preview, and Development as needed.
 
 ## Not in V1
 
