@@ -90,7 +90,7 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
   }
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col overflow-x-hidden px-3 py-4 min-[380px]:px-4 sm:max-w-2xl sm:px-4 sm:py-5 md:max-w-3xl">
+    <main className="mx-auto flex min-h-[100svh] w-full max-w-md flex-col overflow-x-hidden px-3 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-[calc(1rem+env(safe-area-inset-top))] min-[380px]:px-4 sm:max-w-2xl sm:px-4 sm:py-5 md:max-w-3xl">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.18em] text-lime">{scenario.category}</p>
@@ -105,14 +105,14 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
         <span>Reputation Shield</span>
         <span>{100 - progress + 7}% unstable</span>
       </div>
-      <section className="scene-3d slide-up rounded-[24px] border-2 border-cream bg-coal p-4 shadow-pop min-[380px]:rounded-[28px] min-[380px]:p-5">
+      <section className="scene-3d slide-up overflow-visible rounded-[24px] border-2 border-cream bg-coal p-4 shadow-pop min-[380px]:rounded-[28px] min-[380px]:p-5">
         {scenario.context && <p className="mb-4 text-sm font-bold text-cream/65">{scenario.context}</p>}
-        <div className="max-w-full -rotate-1 rounded-2xl rounded-tl-sm border-2 border-yellow bg-ink p-3 shadow-pop min-[380px]:p-4">
+        <div className="max-w-full overflow-visible rounded-2xl rounded-tl-sm border-2 border-yellow bg-ink p-3 shadow-pop min-[420px]:-rotate-1 min-[380px]:p-4">
           {scenario.speaker && <p className="text-sm font-black text-pink">{scenario.speaker}:</p>}
-          <p className="mt-1 break-words text-[1.35rem] font-black leading-tight min-[380px]:text-2xl">"{scenario.situation}"</p>
+          <p className="mt-1 max-w-full break-words text-[1.18rem] font-black leading-snug [overflow-wrap:anywhere] min-[360px]:text-[1.3rem] min-[420px]:text-2xl">"{scenario.situation}"</p>
           <p className="mt-3 inline-block rounded-md bg-lime px-2 py-1 text-xs font-black text-ink">NPC confidence: dangerously high</p>
         </div>
-        <h2 className="mt-5 break-words text-lg font-black min-[380px]:text-xl">{scenario.question}</h2>
+        <h2 className="mt-5 max-w-full break-words text-lg font-black leading-snug [overflow-wrap:anywhere] min-[380px]:text-xl">{scenario.question}</h2>
         <div className="mt-4 grid gap-3">
           {scenario.responses.map((option, optionIndex) => (
             <button
@@ -120,7 +120,7 @@ export function QuizClient({ character, scenarios }: { character: Character; sce
               onClick={() => choose(option)}
               disabled={!!selected}
               aria-disabled={!!selected}
-              className={`min-h-16 rounded-xl border-2 p-3 text-left text-[0.95rem] font-black leading-snug transition disabled:cursor-not-allowed min-[380px]:p-4 min-[380px]:text-base ${selected?.id === option.id ? "border-yellow bg-yellow text-ink shadow-pop" : selected ? "border-cream/10 bg-ink text-cream/40" : "border-cream/25 bg-ink text-cream active:scale-[0.99]"}`}
+              className={`min-h-16 rounded-xl border-2 p-3 text-left text-[0.92rem] font-black leading-snug transition [overflow-wrap:anywhere] disabled:cursor-not-allowed min-[380px]:p-4 min-[380px]:text-base ${selected?.id === option.id ? "border-yellow bg-yellow text-ink shadow-pop" : selected ? "border-cream/10 bg-ink text-cream/40" : "border-cream/25 bg-ink text-cream active:scale-[0.99]"}`}
             >
               <span className="mr-2 text-pink">{labels[optionIndex]}.</span>
               {option.text} <span aria-hidden>{option.emoji}</span>
