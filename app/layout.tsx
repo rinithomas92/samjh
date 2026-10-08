@@ -6,20 +6,20 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://play-samjh.vercel.app"),
-  title: "SAMJH - Can You Survive Indian Society?",
-  description: "A 3D satirical Indian social intelligence game built for reels, result cards, and chaotic group-chat challenges.",
+  metadataBase: new URL("https://play-samajh.vercel.app"),
+  title: "SAMJH - The Indian Social Fitness Game",
+  description: "A satirical social intelligence game for boundaries, self-image, pressure, and Indian society survival.",
   openGraph: {
-    title: "SAMJH - The Indian Social Intelligence Game",
+    title: "SAMJH - The Indian Social Fitness Game",
     description: "You have IQ. But can you survive Indian society?",
-    url: "https://play-samjh.vercel.app",
+    url: "https://play-samajh.vercel.app",
     siteName: "SAMJH",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "SAMJH - Can You Survive Indian Society?",
-    description: "Play, get roasted, discover your persona, and challenge a friend."
+    title: "SAMJH - The Indian Social Fitness Game",
+    description: "Play social simulations, get scored, discover your persona, and challenge a friend."
   }
 };
 

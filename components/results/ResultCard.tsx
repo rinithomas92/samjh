@@ -21,16 +21,21 @@ export function ResultCard({ persona, scores, socialIq, square = false, cardRef 
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
         <div className="absolute inset-x-0 bottom-[-92px] h-48 stage-floor opacity-55" />
       </div>
-      <div className="absolute right-3 top-3 rotate-6 rounded-lg bg-pink px-2.5 py-1 text-[11px] min-[360px]:right-4 min-[360px]:top-4 min-[360px]:px-3 min-[360px]:text-xs font-black text-cream sticker">NO FILTER</div>
+      <div className="absolute right-3 top-3 rotate-6 rounded-lg bg-pink px-2.5 py-1 text-[11px] min-[360px]:right-4 min-[360px]:top-4 min-[360px]:px-3 min-[360px]:text-xs font-black text-cream sticker">SOCIAL LAB</div>
       <div className="absolute bottom-3 left-3 -rotate-3 rounded-lg bg-lime px-2.5 py-1 text-[11px] min-[360px]:bottom-4 min-[360px]:left-4 min-[360px]:px-3 min-[360px]:text-xs font-black text-ink sticker">BEAT THIS</div>
       <div className="relative flex min-h-[566px] flex-col sm:min-h-[588px]">
         <p className="pr-24 text-xs font-black tracking-[0.16em] text-yellow min-[360px]:text-sm min-[360px]:tracking-[0.2em]">SAMJH 🇮🇳</p>
-        <p className="mt-1 text-xs font-bold uppercase text-cream/55">Your Society Survival Avatar</p>
+        <p className="mt-1 text-xs font-bold uppercase text-cream/55">Your Social Operating System</p>
         <div className="my-auto py-4">
           <h2 className="break-words text-[clamp(1.7rem,9vw,2.25rem)] font-black leading-tight text-edge">{persona.name} <span>{persona.emoji}</span></h2>
           <p className="mt-4 text-[clamp(3rem,16vw,3.75rem)] font-black leading-none text-yellow">{socialIq}<span className="text-2xl text-cream/60">/100</span></p>
           <p className="text-sm font-black uppercase tracking-[0.15em] text-pink">Social IQ</p>
           <p className="mt-5 rounded-2xl border-2 border-cream/20 bg-ink/90 p-3 text-base font-black leading-tight min-[360px]:text-lg">"{persona.quote}"</p>
+          <div className="mt-3 grid grid-cols-3 gap-2 text-center text-[10px] font-black uppercase tracking-[0.08em] text-cream/65">
+            <span className="rounded-lg border border-cream/15 bg-coal py-2">Rehearse</span>
+            <span className="rounded-lg border border-cream/15 bg-coal py-2">Respond</span>
+            <span className="rounded-lg border border-cream/15 bg-coal py-2">Rewire</span>
+          </div>
         </div>
         <div className="grid gap-2">
           {topTraits.map(([key, icon, label]) => (
